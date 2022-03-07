@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class InvestmentRequest {
-    private Long productId;
-
-    private Double value;
+	private Long productId;
+	private Double value;
 }

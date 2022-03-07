@@ -1,21 +1,10 @@
 package br.com.lab.impacta.investment.domain.exception;
 
+public class InvestmentProductNotFoundException extends DomainException {
 
-public class InvestmentProductNotFoundException extends RuntimeException {
+	private static final long serialVersionUID = -3639523238015183800L;
 
-    private String description;
-
-    public String getDescription() {
-        return this.description;
-    }
-
-    public InvestmentProductNotFoundException(){
-        super();
-    }
-
-    public InvestmentProductNotFoundException(String message, String description) {
-        super(message);
-
-        this.description = description;
-    }
+	public InvestmentProductNotFoundException(String message, String description) {
+		super(message, description);
+	}
 }

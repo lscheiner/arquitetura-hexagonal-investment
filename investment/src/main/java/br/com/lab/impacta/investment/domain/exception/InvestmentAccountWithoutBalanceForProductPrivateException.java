@@ -1,20 +1,11 @@
 package br.com.lab.impacta.investment.domain.exception;
 
-public class InvestmentAccountWithoutBalanceForProductPrivateException extends RuntimeException {
+public class InvestmentAccountWithoutBalanceForProductPrivateException extends DomainException {
 
-    private String description;
+	private static final long serialVersionUID = -18634880669578187L;
 
-    public String getDescription() {
-        return this.description;
-    }
+	public InvestmentAccountWithoutBalanceForProductPrivateException(String message, String description) {
+        super(message, description);
 
-    public InvestmentAccountWithoutBalanceForProductPrivateException(){
-        super();
-    }
-
-    public InvestmentAccountWithoutBalanceForProductPrivateException(String message, String description) {
-        super(message);
-
-        this.description = description;
     }
 }

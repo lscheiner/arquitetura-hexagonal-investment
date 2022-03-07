@@ -1,19 +1,10 @@
 package br.com.lab.impacta.investment.domain.exception;
 
-public class InvestmentAccountIsNotDebitException extends RuntimeException {
-    private String description;
+public class InvestmentAccountIsNotDebitException extends DomainException {
 
-    public String getDescription() {
-        return this.description;
-    }
+	private static final long serialVersionUID = 352887208351336002L;
 
-    public InvestmentAccountIsNotDebitException(){
-        super();
-    }
-
-    public InvestmentAccountIsNotDebitException(String message, String description) {
-        super(message);
-
-        this.description = description;
-    }
+	public InvestmentAccountIsNotDebitException(String message, String description) {
+		super(message, description);
+	}
 }

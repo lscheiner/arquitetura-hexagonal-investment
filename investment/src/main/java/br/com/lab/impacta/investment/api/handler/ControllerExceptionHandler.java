@@ -1,6 +1,7 @@
 package br.com.lab.impacta.investment.api.handler;
 
 import br.com.lab.impacta.investment.application.dto.response.ErrorMessageResponse;
+import br.com.lab.impacta.investment.domain.exception.DomainException;
 import br.com.lab.impacta.investment.domain.exception.InvestmentAccountIsNotDebitException;
 import br.com.lab.impacta.investment.domain.exception.InvestmentAccountWithoutBalanceException;
 import br.com.lab.impacta.investment.domain.exception.InvestmentAccountWithoutBalanceForProductPrivateException;
@@ -15,25 +16,17 @@ import java.util.Date;
 @ControllerAdvice
 public class ControllerExceptionHandler {
 
-    private final String MESSAGE_ERROR_DEFAULT = "Não foi possível processar sua requisição!";
+    private static final String MESSAGE_ERROR_DEFAULT = "Não foi possível processar sua requisição!";
 
     @ExceptionHandler(InvestmentProductNotFoundException.class)
     public ResponseEntity<ErrorMessageResponse> errorProductNotFound(InvestmentProductNotFoundException exception) {
         return getErrorMessageResponse(exception.getMessage(), exception.getDescription(), HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(InvestmentAccountWithoutBalanceException.class)
-    public ResponseEntity<ErrorMessageResponse> errorWithoutBalance(InvestmentAccountWithoutBalanceException exception) {
-        return getErrorMessageResponse(exception.getMessage(), exception.getDescription(), HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(InvestmentAccountWithoutBalanceForProductPrivateException.class)
-    public ResponseEntity<ErrorMessageResponse> errorWithoutBalanceForPrivate(InvestmentAccountWithoutBalanceForProductPrivateException exception) {
-        return getErrorMessageResponse(exception.getMessage(), exception.getDescription(), HttpStatus.BAD_REQUEST);
-    }
-
-    @ExceptionHandler(InvestmentAccountIsNotDebitException.class)
-    public ResponseEntity<ErrorMessageResponse> errorIsNotDebited(InvestmentAccountIsNotDebitException exception) {
+	@ExceptionHandler({ InvestmentAccountWithoutBalanceException.class,
+			InvestmentAccountWithoutBalanceForProductPrivateException.class,
+			InvestmentAccountIsNotDebitException.class })
+    public ResponseEntity<ErrorMessageResponse> errorWithoutBalance(DomainException exception) {
         return getErrorMessageResponse(exception.getMessage(), exception.getDescription(), HttpStatus.BAD_REQUEST);
     }
 

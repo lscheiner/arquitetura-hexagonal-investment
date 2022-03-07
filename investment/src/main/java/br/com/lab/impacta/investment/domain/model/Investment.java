@@ -1,14 +1,15 @@
 package br.com.lab.impacta.investment.domain.model;
 
-import io.swagger.models.auth.In;
-import lombok.Data;
-import org.hibernate.annotations.CreationTimestamp;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Date;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+import lombok.Data;
 
 @Data
 @Entity
@@ -46,14 +47,12 @@ public class Investment {
 
         if (!product.isPrivateInvestment()) {
             this.privateInvestment = false;
-
             return true;
         }
 
         if (product.isPrivateInvestment() &&
                 (accountBalance >= product.getMinimumValueForInvestment())) {
             this.privateInvestment = true;
-
             return true;
         }
 

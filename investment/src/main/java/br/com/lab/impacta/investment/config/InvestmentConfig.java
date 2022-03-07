@@ -8,13 +8,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class InvestmentConfig {
 
-    @Bean
-    public Logger.Level feignLoggerLevel() {
-        return Logger.Level.FULL;
-    }
+	@Bean
+	public Logger.Level feignLoggerLevel() {
+		return Logger.Level.FULL;
+	}
 
-    @Bean
-    public OkHttpClient client() {
-        return new OkHttpClient();
-    }
+	@Bean
+	public OkHttpClient client() {
+		return new OkHttpClient();
+	}
 }
