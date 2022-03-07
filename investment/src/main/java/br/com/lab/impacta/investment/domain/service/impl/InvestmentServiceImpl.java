@@ -10,7 +10,7 @@ import br.com.lab.impacta.investment.domain.model.Investment;
 import br.com.lab.impacta.investment.domain.model.Product;
 import br.com.lab.impacta.investment.domain.service.InvestmentService;
 import br.com.lab.impacta.investment.domain.service.facade.AccountFacade;
-import br.com.lab.impacta.investment.domain.service.facade.valueObject.AccountBalanceVO;
+import br.com.lab.impacta.investment.domain.service.facade.vo.AccountBalanceVO;
 import br.com.lab.impacta.investment.infrastructure.message.MessageService;
 import br.com.lab.impacta.investment.infrastructure.repository.InvestmentRepository;
 import br.com.lab.impacta.investment.infrastructure.repository.ProductRepository;

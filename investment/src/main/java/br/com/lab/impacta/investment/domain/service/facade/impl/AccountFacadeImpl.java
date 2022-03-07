@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component;
 
 import br.com.lab.impacta.investment.application.dto.request.DebitAccountRequest;
 import br.com.lab.impacta.investment.domain.service.facade.AccountFacade;
-import br.com.lab.impacta.investment.domain.service.facade.valueObject.AccountBalanceVO;
-import br.com.lab.impacta.investment.domain.service.facade.valueObject.DebitAccountVO;
+import br.com.lab.impacta.investment.domain.service.facade.vo.AccountBalanceVO;
+import br.com.lab.impacta.investment.domain.service.facade.vo.DebitAccountVO;
 import br.com.lab.impacta.investment.infrastructure.http.AccountClient;
 import lombok.AllArgsConstructor;
 
@@ -17,9 +17,7 @@ public class AccountFacadeImpl implements AccountFacade {
 
     @Override
     public AccountBalanceVO getAccountBalanceById(Long accountId) {
-        AccountBalanceVO accountBalanceVO = this.accountClient.getAccountBalance(accountId);
-
-        return accountBalanceVO;
+        return this.accountClient.getAccountBalance(accountId);
     }
 
     @Override

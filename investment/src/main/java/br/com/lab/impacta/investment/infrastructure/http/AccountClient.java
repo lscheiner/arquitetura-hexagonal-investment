@@ -1,8 +1,9 @@
 package br.com.lab.impacta.investment.infrastructure.http;
 
 import br.com.lab.impacta.investment.application.dto.request.DebitAccountRequest;
-import br.com.lab.impacta.investment.domain.service.facade.valueObject.AccountBalanceVO;
-import br.com.lab.impacta.investment.domain.service.facade.valueObject.DebitAccountVO;
+import br.com.lab.impacta.investment.domain.service.facade.vo.AccountBalanceVO;
+import br.com.lab.impacta.investment.domain.service.facade.vo.DebitAccountVO;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
